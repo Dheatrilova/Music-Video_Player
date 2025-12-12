@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        scaffoldBackgroundColor: Color(0xFF131022),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
 
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Color(0xFF1310222),
         
         title: Text(widget.title),
       ),
@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
         
           mainAxisAlignment: .center,
           children: [
-            const Text('You have pushed the button this many times:'),
+            const Text('You have pushed the button this many times:',style: TextStyle(color: Colors.white),),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
