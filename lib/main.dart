@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'video_page.dart';
+import 'audio_page.dart';
+import 'search_page.dart';
+import 'history_page.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -30,29 +35,43 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _currentIndex = 0;
+
+  final List<Widget> _pages = const [
+    VideoPage(),
+    AudioPage(),
+    SearchPage(),
+    HistoryPage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 34, 27, 68),
-
         leading: const Icon(Icons.person, color: Colors.white),
-
         title: Text(widget.title, style: const TextStyle(color: Colors.white)),
-
         centerTitle: true,
-
         actions: const [Icon(Icons.more_vert, color: Colors.white)],
+        
       ),
 
+      body: _pages[_currentIndex],
+
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
         backgroundColor: const Color.fromARGB(255, 34, 27, 68),
-        selectedItemColor: Colors.white,
+        selectedItemColor: Color(0xFF3713EC),
         unselectedItemColor: Colors.grey,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },        
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.video_call),
             label: 'Video',
           ),
           BottomNavigationBarItem(
@@ -64,20 +83,12 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Telusuri',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.library_music),
-            label: 'Playlist',
+            icon: Icon(Icons.history),
+            label: 'Riwayat',
           ),
         ],
       ),
 
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            
-          ],
-        ),
-      ),
     );
   }
 }
