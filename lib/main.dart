@@ -3,6 +3,7 @@ import 'video_page.dart';
 import 'audio_page.dart';
 import 'search_page.dart';
 import 'history_page.dart';
+import 'splash_screen.dart';
 
 
 void main() {
@@ -16,11 +17,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SplashScreen(),
+        '/home': (context) => const MyHomePage(title: 'ViAuo'),
+      },
       title: 'ViAuo',
       theme: ThemeData(
         scaffoldBackgroundColor: const Color.fromARGB(255, 54, 45, 94),
       ),
-      home: const MyHomePage(title: 'ViAuo'),
     );
   }
 }
