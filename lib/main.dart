@@ -45,10 +45,37 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: const [Icon(Icons.more_vert, color: Colors.white)],
       ),
 
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: const Color.fromARGB(255, 34, 27, 68),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Video',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.audiotrack),
+            label: 'Audio',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Telusuri',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_music),
+            label: 'Playlist',
+          ),
+        ],
+      ),
+
       body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [],
+          children: [
+            
+          ],
         ),
       ),
     );
